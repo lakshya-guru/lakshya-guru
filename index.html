@@ -109,17 +109,18 @@ const supabaseClient = window.supabase.createClient(
 );
 </script>
  <script>
+
 async function registerUser() {
-  const phone = document.getElementById("loginPhone").value.trim();
+  const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
 
-  if (!phone || !password) {
-    alert("Mobile number aur password bharo");
+  if (!email || !password) {
+    alert("Email aur password bharo");
     return;
   }
 
   const { data, error } = await supabaseClient.auth.signUp({
-    phone: phone,
+    email: email,
     password: password
   });
 
@@ -128,8 +129,9 @@ async function registerUser() {
     return;
   }
 
-  alert("Registration request successful. OTP verification may be required.");
+  alert("Registration successful! Email verification check karo.");
 }
+
 
 async function loginUser() {
   const phone = document.getElementById("loginPhone").value.trim();
