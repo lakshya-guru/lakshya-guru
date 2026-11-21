@@ -97,4 +97,6 @@ function quizList(){return `<div class="tablewrap" style="margin-top:15px"><tabl
 function createQuiz(){let name=$('quizName').value.trim();if(!name){alert('Quiz का नाम लिखें।');return}quizzes.push({id:Date.now(),name,exam:$('quizExam').value,count:Number($('quizCount').value)||10,status:'Draft'});hideModal('quizModal');render()}
 function toggleQuiz(id){let q=quizzes.find(x=>x.id===id);q.status=q.status==='Draft'?'Published':'Draft';render()}
 render();
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ 
 </script></body></html>
