@@ -35,7 +35,25 @@ input,select,textarea{width:100%;padding:10px 11px;border:1px solid #d9dfeb;bord
  <div class="footer">© 2026 LAKSHYA GURU • Navy Blue & Golden • Responsive Demo Prototype</div>
 </main>
 <div id="loginModal" class="modal hidden"><div class="modalbox"><div class="row"><h3>Welcome to LAKSHYA GURU</h3><button class="ghost" onclick="hideModal('loginModal')">✕</button></div><p class="muted">यह अभी UI prototype है। वास्तविक OTP, सुरक्षित login और account creation backend जोड़ने के बाद सक्रिय होंगे।</p><label>Mobile Number</label><input placeholder="10-digit mobile number" maxlength="10"><label>Password</label><input type="password" placeholder="Password"><div class="actions" style="margin-top:14px"><button onclick="alert('Demo only: authentication backend अभी जोड़ा जाना बाकी है।')">Login</button><button class="ghost" onclick="alert('Demo only: registration backend अभी जोड़ा जाना बाकी है।')">Create Account</button></div></div></div>
-<div id="quizModal" class="modal hidden"><div class="modalbox"><div class="row"><h3>Quiz Builder</h3><button class="ghost" onclick="hideModal('quizModal')">✕</button></div><div class="notice">यह सुविधा केवल Admin और Owner के लिए उपलब्ध है। विद्यार्थी इसे नहीं देख सकते।</div><label>Quiz / Test का नाम</label><input id="quizName" placeholder="जैसे: Bihar Geography Practice Set 01"><div class="formgrid"><div><label>Exam</label><select id="quizExam"><option>BPSC</option><option>UPSC</option><option>State PCS</option><option>SSC</option><option>Police</option><option>Railway</option><option>Banking</option><option>Defence</option><option>Teaching</option></select></div><div><label>Question Count</label><input id="quizCount" type="number" min="1" value="10"></div></div><label>Instructions / Description</label><textarea id="quizDesc" rows="3" placeholder="Test का विवरण"></textarea><button class="gold" style="margin-top:12px" onclick="createQuiz()">Save Draft</button></div></div>
+<div id="
+<div id="loginModal" class="modal hidden">
+  <div class="modalbox">
+    <div class="row">
+      <h3>Welcome to LAKSHYA GURU</h3>
+      <button class="ghost" onclick="hideModal('loginModal')">✕</button>
+    </div>
+    <p class="muted">अपने अकाउंट में Login करें या नया अकाउंट बनाएँ।</p>
+    <label>Mobile Number</label>
+    <input id="loginPhone" type="tel" placeholder="10-digit mobile number" maxlength="10">
+    <label>Password</label>
+    <input id="loginPassword" type="password" placeholder="Password">
+    <div class="actions" style="margin-top:14px">
+      <button onclick="loginUser()">Login</button>
+      <button class="ghost" onclick="registerUser()">Create Account</button>
+    </div>
+  </div>
+</div>
+ " class="modal hidden"><div class="modalbox"><div class="row"><h3>Quiz Builder</h3><button class="ghost" onclick="hideModal('quizModal')">✕</button></div><div class="notice">यह सुविधा केवल Admin और Owner के लिए उपलब्ध है। विद्यार्थी इसे नहीं देख सकते।</div><label>Quiz / Test का नाम</label><input id="quizName" placeholder="जैसे: Bihar Geography Practice Set 01"><div class="formgrid"><div><label>Exam</label><select id="quizExam"><option>BPSC</option><option>UPSC</option><option>State PCS</option><option>SSC</option><option>Police</option><option>Railway</option><option>Banking</option><option>Defence</option><option>Teaching</option></select></div><div><label>Question Count</label><input id="quizCount" type="number" min="1" value="10"></div></div><label>Instructions / Description</label><textarea id="quizDesc" rows="3" placeholder="Test का विवरण"></textarea><button class="gold" style="margin-top:12px" onclick="createQuiz()">Save Draft</button></div></div>
 <script>
 const exams=['UPSC','BPSC','State PCS','SSC','Police','Railway','Banking','Defence','Teaching'];
 let role='student',page='home';
