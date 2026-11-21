@@ -108,5 +108,49 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_KEY
 );
 </script>
- 
+ <script>
+async function registerUser() {
+  const phone = document.getElementById("loginPhone").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  if (!phone || !password) {
+    alert("Mobile number aur password bharo");
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    phone: phone,
+    password: password
+  });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Registration request successful. OTP verification may be required.");
+}
+
+async function loginUser() {
+  const phone = document.getElementById("loginPhone").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  if (!phone || !password) {
+    alert("Mobile number aur password bharo");
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    phone: phone,
+    password: password
+  });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Login successful!");
+}
+ </script>
 </script></body></html>
